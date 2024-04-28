@@ -1,7 +1,5 @@
-/* AdForm.css */
-
 .form-container {
-    max-width: 500px;
+    width: 370px; 
     margin: auto;
     padding: 20px;
     background-color: #f6f7f9;
@@ -48,5 +46,14 @@
   .form-container span.error {
     color: red;
     font-size: 14px;
+  }
+  
+  .image-preview {
+    width: 100%;
+    max-width: calc(100% - 20px); 
+    max-height: 200px; 
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 8px;
   }
   

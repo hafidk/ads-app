@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import "./Layout.css"; // Import CSS file for styling
+import "./Layout.css";
+import "./Footer.css";
 import { useNavigate } from "react-router-dom";
 
 export const MainLayout = ({ children }) => {
@@ -26,6 +27,26 @@ export const MainLayout = ({ children }) => {
       <div className="title">Ads Manager! (By Haf)</div>
       {generateBreadcrumbs()}
       <div className="content">{children}</div>
+      <div className="footer">
+        <Footer />
+      </div>
     </div>
+  );
+};
+
+const Footer = () => {
+  return (
+    <footer className="footer-container">
+      <div>
+        <h3>A random footer</h3>
+      </div>
+      <div>
+        <h3>Don't mind the info here</h3>
+      </div>
+      <div>
+        <h3>About this footer</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </footer>
   );
 };

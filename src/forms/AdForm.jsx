@@ -1,4 +1,3 @@
-// AdForm.jsx
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./AdForm.css";
@@ -44,30 +43,33 @@ export const AdForm = ({ onSubmit, ad }) => {
     <div className="form-container">
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <div>
-          <label>Title:</label>
+          <label htmlFor="title">Title:</label>
           <input
             {...register("title", { required: true })}
             defaultValue={ad ? ad.title : ""}
             type="text"
+            id="title" // Add id attribute for association
           />
           {errors.title && <span className="error">Title is required</span>}
         </div>
         <div>
-          <label>Description:</label>
+          <label htmlFor="description">Description:</label>
           <textarea
             {...register("description", { required: true })}
             defaultValue={ad ? ad.description : ""}
+            id="description" // Add id attribute for association
           />
           {errors.description && (
             <span className="error">Description is required</span>
           )}
         </div>
         <div>
-          <label>Image:</label>
+          <label htmlFor="image">Image:</label>
           <input
             type="file"
             {...register("image", { required: true })}
             onChange={handleImageChange}
+            id="image" // Add id attribute for association
           />
           {imageUrl && (
             <img src={imageUrl} alt="Image Preview" className="image-preview" />

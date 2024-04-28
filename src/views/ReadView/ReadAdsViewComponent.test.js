@@ -77,23 +77,23 @@ describe('ReadAdsViewComponentInternal', () => {
 
 
 
-// describe('PromptComponent', () => {
-//   it('displays the prompt message', () => {
-//     const { getByText } = render(<PromptComponent />);
-//     expect(getByText('Are you sure you want to delete this ad?')).toBeInTheDocument();
-//   });
+describe('PromptComponent', () => {
+  it('displays the prompt message', () => {
+    const { getByText } = render(<PromptComponent />);
+    expect(getByText('Are you sure you want to delete this ad?')).toBeInTheDocument();
+  });
 
-//   it('calls onDelete when "Yes" button is clicked', () => {
-//     const onDelete = jest.fn();
-//     const { getByText } = render(<PromptComponent onDelete={onDelete} />);
-//     fireEvent.click(getByText('Yes'));
-//     expect(onDelete).toHaveBeenCalledTimes(1);
-//   });
+  it('calls onDelete when "Yes" button is clicked', () => {
+    const onDelete = jest.fn();
+    const { getByText } = render(<PromptComponent onDelete={onDelete} />);
+    fireEvent.click(getByText('Yes'));
+    expect(onDelete).toHaveBeenCalledTimes(1);
+  });
 
-//   it('calls onCancel when "No" button is clicked', () => {
-//     const onCancel = jest.fn();
-//     const { getByText } = render(<PromptComponent onCancel={onCancel} />);
-//     fireEvent.click(getByText('No'));
-//     expect(onCancel).toHaveBeenCalledTimes(1);
-//   });
-// });
+  it('calls onCancel when "No" button is clicked', () => {
+    const onCancel = jest.fn();
+    const { getByText } = render(<PromptComponent onCancel={onCancel} />);
+    fireEvent.click(getByText('No'));
+    expect(onCancel).toHaveBeenCalledTimes(1);
+  });
+});

@@ -7,8 +7,11 @@ import { AdComponent } from "../../components/Ad/AdComponent";
 import "./ReadAdsViewComponent.css";
 import { useParams, useNavigate } from "react-router-dom";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export const ReadAdsViewComponent = () => {
-  const { adsByProduct, error, addAdForProduct } = useAdsContext();
+  const { adsByProduct, error } = useAdsContext();
   const { productIds } = useProductContext();
   const { productId } = useParams();
   const navigate = useNavigate();
@@ -64,6 +67,7 @@ export const ReadAdsViewComponentInternal = ({ productAds, productId }) => {
           onDelete={() => {
             deleteAdById(productId, adToDelete);
             setAdToDelete(null);
+            toast("Deleted Ad!");
           }}
         />
       )}
@@ -81,6 +85,7 @@ export const ReadAdsViewComponentInternal = ({ productAds, productId }) => {
       ))}
       <AddAdComponent handleClick={handleClickQuick} quick={true} />
       <AddAdComponent handleClick={handleClick} />
+      <ToastContainer />
     </div>
   );
 };

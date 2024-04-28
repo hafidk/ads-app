@@ -13,7 +13,7 @@ export const ProductsViewComponent = () => {
   );
 };
 
-const ProductsViewComponentInternal = ({ product }) => {
+export const ProductsViewComponentInternal = ({ product }) => {
   const navigate = useNavigate();
   return (
     <div>

@@ -1,7 +1,14 @@
 .add-ad-container {
-    border: 2px dashed #000;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-  }
+  width: 370px; 
+  height: 440px;
+  border: 2px dashed #000;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  align-content: center;
+}
+
+.add-ad-child{
+  display: inline-grid;
+  justify-items: center;
+}
