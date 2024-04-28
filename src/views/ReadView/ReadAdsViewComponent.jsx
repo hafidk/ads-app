@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useAdsContext } from "../../state/AdsProvider/AdsProvider";
 import { AddAdComponent } from "../../components/AddAd/AddAdComponent";
-import { useParams } from "react-router-dom";
 import { useProductContext } from "../../state/ProductProvider/ProductProvider";
-import { useNavigate } from "react-router-dom";
 import { AdComponent } from "../../components/Ad/AdComponent";
+import "./ReadAdsViewComponent.css";
+import { useParams, useNavigate } from "react-router-dom";
 
 export const ReadAdsViewComponent = () => {
   const { adsByProduct, error, addAdForProduct } = useAdsContext();
-  const { productIds, product } = useProductContext();
+  const { productIds } = useProductContext();
   const { productId } = useParams();
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +21,27 @@ export const ReadAdsViewComponent = () => {
 
   const productAds = adsByProduct[productId] || [];
 
+  return (
+    <>
+      {error && <div>{error}</div>}
+      <ReadAdsViewComponentInternal
+        productAds={productAds}
+        productId={productId}
+      />
+    </>
+  );
+};
+
+export const ReadAdsViewComponentInternal = ({ productAds, productId }) => {
+  const { addAdForProduct, deleteAdById } = useAdsContext();
+  const [adToDelete, setAdToDelete] = useState(null);
+  const navigate = useNavigate();
+
   const handleClick = () => {
+    navigate("/create/" + productId);
+  };
+
+  const handleClickQuick = () => {
     const newAd = {
       id: Math.random().toString(36).substr(2, 9),
       title: "New Ad Title",
@@ -33,30 +52,53 @@ export const ReadAdsViewComponent = () => {
     addAdForProduct(productId, newAd);
   };
 
+  const handleDelete = (adId) => {
+    setAdToDelete(adId);
+  };
+
   return (
-    <>
-      <AddAdComponent handleClick={handleClick} />
-      {error && <div>{error}</div>}
+    <div className="ads-grid-container">
+      {adToDelete && (
+        <PromptComponent
+          onCancel={() => setAdToDelete(null)}
+          onDelete={() => {
+            deleteAdById(productId, adToDelete);
+            setAdToDelete(null);
+          }}
+        />
+      )}
       {productAds.map((ad) => (
-        <AdComponent ad={ad} />
+        <AdComponent
+          key={ad.id}
+          ad={ad}
+          productId={productId}
+          //[HK] I don't know if it's intended, but the description of the issue states that the deleteView should
+          // redirect to the main view once deleted, I think that's counterintuitive since you might want to edit/delete
+          // other ads and this would result on a back and forth, for now I'll remain on this same screen after deleting
+          // since it doesn't seem to be other views that can trigger ad deletion
+          onDelete={() => handleDelete(ad.id)}
+        />
       ))}
-      {/* {ads && <ProductsViewComponentInternal product={ads} />} */}
-    </>
+      <AddAdComponent handleClick={handleClickQuick} quick={true} />
+      <AddAdComponent handleClick={handleClick} />
+    </div>
   );
 };
 
-// const ProductsViewComponentInternal = ({ product }) => {
-//   const navigate = useNavigate();
-//   return (
-//     <div>
-//       <ul>
-//         {product.products.map((product) => (
-//           <ProductCard
-//             product={product}
-//             onClick={() => navigate("./read/" + product.id)}
-//           />
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
+const PromptComponent = ({ onDelete, onCancel }) => {
+  return (
+    <div className="prompt-overlay">
+      <div className="prompt-box">
+        <div className="prompt-content">
+          <p>Are you sure you want to delete this ad?</p>
+        </div>
+        <div className="prompt-buttons">
+          <button onClick={onDelete}>Yes</button>
+          <button onClick={onCancel}>No</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PromptComponent;

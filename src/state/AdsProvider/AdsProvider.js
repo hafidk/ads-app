@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 const AdsContext = createContext();
 
@@ -7,27 +7,56 @@ export const useAdsContext = () => {
 };
 
 export const AdsProvider = ({ children }) => {
-  const [adsByProduct, setAdsByProduct] = useState({}); // Use an object to store ads by product
+  const [adsByProduct, setAdsByProduct] = useState({});
+  const [adIds, setAdIds] = useState([]);
 
-  // Function to add an ad for a specific product ID
   const addAdForProduct = (productId, newAd) => {
-    setAdsByProduct(prevAdsByProduct => ({
+    setAdsByProduct((prevAdsByProduct) => ({
       ...prevAdsByProduct,
-      [productId]: prevAdsByProduct[productId] ? [...prevAdsByProduct[productId], newAd] : [newAd]
+      [productId]: prevAdsByProduct[productId]
+        ? [...prevAdsByProduct[productId], newAd]
+        : [newAd],
     }));
   };
 
-  // Function to delete ads for a specific product ID
-  const deleteAdsForProduct = (productId) => {
-    setAdsByProduct(prevAdsByProduct => {
-      const newAdsByProduct = { ...prevAdsByProduct };
-      delete newAdsByProduct[productId];
-      return newAdsByProduct;
+  const deleteAdById = (productId, adId) => {
+    setAdsByProduct((prevAdsByProduct) => {
+      const updatedAdsByProduct = { ...prevAdsByProduct };
+      updatedAdsByProduct[productId] = updatedAdsByProduct[productId].filter(
+        (ad) => ad.id !== adId
+      );
+      return updatedAdsByProduct;
     });
   };
 
+  const updateAdForProduct = (productId, adId, updatedAd) => {
+    setAdsByProduct((prevAdsByProduct) => {
+      const updatedAdsByProduct = { ...prevAdsByProduct };
+      const updatedAds = updatedAdsByProduct[productId]?.map((ad) =>
+        ad.id === adId ? { ...ad, ...updatedAd } : ad
+      );
+      updatedAdsByProduct[productId] = updatedAds;
+      return updatedAdsByProduct;
+    });
+  };
+
+  useEffect(() => {
+    const ids = Object.values(adsByProduct).flatMap((adList) =>
+      adList.map((ad) => ad.id)
+    );
+    setAdIds(ids);
+  }, [adsByProduct]);
+
   return (
-    <AdsContext.Provider value={{ adsByProduct, addAdForProduct, deleteAdsForProduct }}>
+    <AdsContext.Provider
+      value={{
+        adsByProduct,
+        adIds,
+        addAdForProduct,
+        deleteAdById,
+        updateAdForProduct,
+      }}
+    >
       {children}
     </AdsContext.Provider>
   );

@@ -7,12 +7,16 @@ export const MainLayout = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const generateBreadcrumbs = () => {
-    const pathnames = location.pathname.split("/").filter((path) => path);
+    const productName = location.pathname.split("/").filter((path) => path)[1];
     return (
       <div className="breadcrumbs">
-        <span>
-          <div onClick={() => navigate("/")}>Products</div>
-        </span>
+        <span onClick={() => navigate("/")}>Products</span>
+        {productName && (
+          <span onClick={() => navigate(`/read/${productName}`)}>
+            {" "}
+            &gt; {productName}
+          </span>
+        )}
       </div>
     );
   };

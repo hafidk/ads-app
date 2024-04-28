@@ -5,10 +5,12 @@ import { useAdsContext } from "./state/AdsProvider/AdsProvider";
 
 import { ProductsViewComponent } from "./views/ProductsView/ProductsViewComponent";
 import { ReadAdsViewComponent } from "./views/ReadView/ReadAdsViewComponent";
+import { UpdateViewComponent } from "./views/UpdateView/UpdateViewComponent";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Import BrowserRouter and Routes
 import { MainLayout } from "./layouts/MainLayout/MainLayout";
 import { AdsProvider } from "./state/AdsProvider/AdsProvider";
+import { CreateViewComponent } from "./views/CreateView/CreateViewComponent";
 
 function App() {
   return (
@@ -36,10 +38,10 @@ function App() {
               />
 
               <Route
-                path="/update/:addId"
+                path="/update/:productId/:adId"
                 element={
                   <MainLayout>
-                    <div>Hello add!</div>
+                    <UpdateViewComponent />
                   </MainLayout>
                 }
               />
@@ -47,7 +49,7 @@ function App() {
                 path="/create/:productId"
                 element={
                   <MainLayout>
-                    <div>Hello create!</div>
+                    <CreateViewComponent />
                   </MainLayout>
                 }
               />
