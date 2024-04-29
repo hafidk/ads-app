@@ -1,5 +1,5 @@
 import React from 'react'
-import './ProductCard.css' // Import CSS for styling
+import './ProductCard.css'
 
 export const ProductCard = ({ product, onClick }) => {
     return (

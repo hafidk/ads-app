@@ -11,7 +11,7 @@ export const ProductProvider = ({ children }) => {
     const [product, setProduct] = useState()
     const [productIds, setProductIds] = useState([])
     const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(true) // Add loading state
+    const [loading, setLoading] = useState(true) 
 
     useEffect(() => {
         const productService = new ProductService(
@@ -24,11 +24,11 @@ export const ProductProvider = ({ children }) => {
                 setProduct(data)
                 const ids = data.products.map((product) => product.id)
                 setProductIds(ids)
-                setLoading(false) // Set loading to false after data is fetched
+                setLoading(false) 
             })
             .catch(() => {
                 setError('Failed to fetch products.')
-                setLoading(false) // Set loading to false on error
+                setLoading(false) 
             })
     }, [])
 

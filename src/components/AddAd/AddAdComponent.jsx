@@ -1,5 +1,5 @@
 import React from 'react'
-import './AddAd.css' // Import CSS file
+import './AddAd.css'
 
 export const AddAdComponent = ({ handleClick, quick }) => {
     return (

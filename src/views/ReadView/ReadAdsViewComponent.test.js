@@ -16,12 +16,10 @@ jest.mock('../../state/AdsProvider/AdsProvider', () => ({
 
 describe('ReadAdsViewComponentInternal', () => {
     beforeEach(() => {
-        // Mock necessary context values and functions
         useAdsContext.mockReturnValue({
             addAdForProduct: jest.fn(),
             deleteAdById: jest.fn(),
         })
-        // Mock useNavigate to avoid errors
         useNavigate.mockReturnValue(jest.fn())
     })
 

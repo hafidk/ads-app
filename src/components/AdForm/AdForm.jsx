@@ -11,12 +11,10 @@ export const AdForm = ({ onSubmit, ad }) => {
         formState: { errors },
     } = useForm()
 
-    // Generate unique ID
     const generateUniqueId = () => {
         return Math.random().toString(36).substr(2, 9)
     }
 
-    // Handle file input change
     const handleImageChange = (e) => {
         const file = e.target.files[0]
         if (file) {
@@ -28,15 +26,14 @@ export const AdForm = ({ onSubmit, ad }) => {
         }
     }
 
-    // Submit handler
     const onSubmitHandler = (data) => {
         const adData = {
-            id: ad?.id || generateUniqueId(), // Use existing ID or generate a new one
+            id: ad?.id || generateUniqueId(),
             ...data,
             image: imageUrl,
         }
-        onSubmit(adData) // Pass the ad data to the onSubmit function
-        reset() // Reset form after submission
+        onSubmit(adData)
+        reset()
     }
 
     return (
@@ -48,7 +45,7 @@ export const AdForm = ({ onSubmit, ad }) => {
                         {...register('title', { required: true })}
                         defaultValue={ad ? ad.title : ''}
                         type="text"
-                        id="title" // Add id attribute for association
+                        id="title"
                     />
                     {errors.title && (
                         <span className="error">Title is required</span>
@@ -59,7 +56,7 @@ export const AdForm = ({ onSubmit, ad }) => {
                     <textarea
                         {...register('description', { required: true })}
                         defaultValue={ad ? ad.description : ''}
-                        id="description" // Add id attribute for association
+                        id="description"
                     />
                     {errors.description && (
                         <span className="error">Description is required</span>
@@ -71,7 +68,7 @@ export const AdForm = ({ onSubmit, ad }) => {
                         type="file"
                         {...register('image', { required: true })}
                         onChange={handleImageChange}
-                        id="image" // Add id attribute for association
+                        id="image"
                     />
                     {imageUrl && (
                         <img

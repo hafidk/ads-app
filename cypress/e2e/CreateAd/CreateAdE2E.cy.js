@@ -16,7 +16,6 @@ describe('Create an Ad E2E', () => {
 
         cy.get('input[name="title"]').type('New Ad Title')
         cy.get('textarea[name="description"]').type('New Ad Description')
-        // Attach image file
         cy.fixture('image.jpg').then((fileContent) => {
             cy.get('input[type="file"]').then(($input) => {
                 const file = new File([fileContent], 'image.jpg', {

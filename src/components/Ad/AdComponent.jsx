@@ -1,4 +1,3 @@
-// AdComponent.jsx
 import React from 'react'
 import './Ad.css'
 import { useNavigate } from 'react-router-dom'

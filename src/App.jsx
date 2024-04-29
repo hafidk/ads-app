@@ -7,7 +7,7 @@ import { ProductsViewComponent } from './views/ProductsView/ProductsViewComponen
 import { ReadAdsViewComponent } from './views/ReadView/ReadAdsViewComponent'
 import { UpdateViewComponent } from './views/UpdateView/UpdateViewComponent'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' // Import BrowserRouter and Routes
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { MainLayout } from './layouts/MainLayout/MainLayout'
 import { AdsProvider } from './state/AdsProvider/AdsProvider'
 import { CreateViewComponent } from './views/CreateView/CreateViewComponent'
