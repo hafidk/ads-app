@@ -3,7 +3,7 @@
     height: 420px;
     background-color: #f6f7f9;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     margin-bottom: 16px;
 }
@@ -52,6 +52,7 @@
     max-width: 375px;
     border-radius: 1px;
     box-shadow: 0 1px 2px #0006;
+    padding: 0px 20px;
 }
 
 .row {
@@ -68,11 +69,17 @@
 
 .row-2 {
     height: 40px;
+    text-overflow: ellipsis;
+    width: 34ch;
+    overflow: hidden;
+    white-space: nowrap;
     background-color: lightgray;
 }
 
+
 .row-3 {
     height: 280px;
+    border: 1px solid black;
 }
 
 .image {
@@ -91,4 +98,35 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.title-container{
+display: flex;
+padding: 20px 20px 10px 0px;
+}
+
+.icon-circle{
+    background-color: grey;
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+.title-items{
+display: grid;
+color: grey;
+font-weight: 700;
+span {
+    color: black;
+}
+text-align: left;
+margin-left: 20px;
+}
+
+.description{
+    text-align: left;
+    text-overflow: ellipsis;
+    width: 34ch;
+    overflow: hidden;
+    white-space: nowrap;
 }
