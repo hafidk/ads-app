@@ -2,26 +2,25 @@
     display: grid;
     grid-template-rows: 60px auto 1fr;
     gap: 10px;
-    height: 100vh; 
-  }
-  
-  .title {
-    background-color: #3b5998; 
-    color: #fff; 
+    height: 100vh;
+}
+
+.title {
+    background-color: #3b5998;
+    color: #fff;
     padding: 10px;
     font-size: x-large;
-  }
-  
-  .breadcrumbs {
+}
+
+.breadcrumbs {
     background-color: #f0f0f0;
     padding: 10px;
     cursor: pointer;
     text-align: left;
-  }
-  
-  .content {
-    background-color: #fff; 
+}
+
+.content {
+    background-color: #fff;
     padding: 10px 30px;
     justify-self: center;
-
-  }
+}

@@ -1,19 +1,19 @@
 .form-container {
-    width: 370px; 
+    width: 370px;
     margin: auto;
     padding: 20px;
     background-color: #f6f7f9;
     border-radius: 10px;
-  }
-  
-  .form-container label {
+}
+
+.form-container label {
     font-size: 16px;
     margin-bottom: 8px;
     display: block;
-  }
-  
-  .form-container input[type="text"],
-  .form-container textarea {
+}
+
+.form-container input[type='text'],
+.form-container textarea {
     width: 100%;
     max-width: calc(100% - 20px); /* Subtract padding to prevent overflow */
     padding: 10px;
@@ -21,39 +21,38 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box; /* Include padding in width calculation */
-  }
-  
-  .form-container input[type="file"] {
+}
+
+.form-container input[type='file'] {
     width: 100%;
     max-width: calc(100% - 20px); /* Subtract padding to prevent overflow */
     padding: 10px;
     margin-bottom: 20px;
-  }
-  
-  .form-container button[type="submit"] {
+}
+
+.form-container button[type='submit'] {
     background-color: #1877f2;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .form-container button[type="submit"]:hover {
+}
+
+.form-container button[type='submit']:hover {
     background-color: #146edb;
-  }
-  
-  .form-container span.error {
+}
+
+.form-container span.error {
     color: red;
     font-size: 14px;
-  }
-  
-  .image-preview {
+}
+
+.image-preview {
     width: 100%;
-    max-width: calc(100% - 20px); 
-    max-height: 200px; 
+    max-width: calc(100% - 20px);
+    max-height: 200px;
     object-fit: contain;
     border-radius: 8px;
     margin-bottom: 8px;
-  }
-  
+}

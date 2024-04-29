@@ -1,101 +1,94 @@
 .ad {
-  width: 370px; 
-  height: 420px;
-  background-color: #f6f7f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  margin-bottom: 16px;
+    width: 370px;
+    height: 420px;
+    background-color: #f6f7f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 16px;
 }
 
 .ad-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
 }
 
 .ad-logo {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 8px;
 }
 
 .ad-name {
-  font-size: 12px;
-  font-weight: bold;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .ad-image {
-  width: 100%;
-  max-width: 200px;
-  border-radius: 8px;
-  margin-bottom: 8px;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    margin-bottom: 8px;
 }
 
 .ad-content {
-  margin-bottom: 8px;
+    margin-bottom: 8px;
 }
 
 .ad-title {
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
 }
 
 .ad-description {
-  font-size: 12px;
-  color: #1c1e21;
+    font-size: 12px;
+    color: #1c1e21;
 }
 
-
-
-
-
-
-
-
 .container {
-  max-width: 375px;
-  border-radius: 1px;
-  box-shadow: 0 1px 2px #0006;
+    max-width: 375px;
+    border-radius: 1px;
+    box-shadow: 0 1px 2px #0006;
 }
 
 .row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
 }
 
 .row-1 {
-  height: 60px;
-  background-color: lightblue;
+    height: 60px;
+    background-color: lightblue;
 }
 
 .row-2 {
-  height: 40px;
-  background-color: lightgray;
+    height: 40px;
+    background-color: lightgray;
 }
 
 .row-3 {
-  height: 280px;
+    height: 280px;
 }
 
 .image {
-  max-width: 100%;
-  max-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .row-4 {
-  justify-content: space-between;
+    justify-content: space-between;
 }
 
 .action-button {
-  padding: 10px 20px;
-  background-color: #1877f2;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    padding: 10px 20px;
+    background-color: #1877f2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
