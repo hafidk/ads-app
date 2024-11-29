@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express')
 const cors = require('cors')
 const app = express()
@@ -17,8 +19,10 @@ app.listen(PORT, () => {
 })
 
 const path = require('path')
-app.use(express.static(path.join(__dirname, '../frontend/build')))
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
+// Fallback route to serve React app
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build', 'index.html'))
-})
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
